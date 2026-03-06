@@ -317,7 +317,7 @@ function buildPhotoTypeDropdown() {
   if (!gShipmentData) return;
 
   var orderType = gShipmentData.orderType || "";
-  var wallCount = WALL_COUNTS[orderType] || 25;
+  var wallCount = (gShipmentData.expectedWalls && gShipmentData.expectedWalls > 0) ? gShipmentData.expectedWalls : (WALL_COUNTS[orderType] || 25);
   var hasPallets = (orderType === "Forkload Portmark");
 
   // Pre-load
